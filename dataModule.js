@@ -45,11 +45,11 @@ var dataModule = (function(){       //object with property value as another obje
 
         reduceTime: function(){},  //reduces the time by one sec
 
-        timeLeft(){},  //checks if there is time left to continue the test
+        timeLeft: function(){},  //checks if there is time left to continue the test
 
-        testEnded(){},  //checks if the test has already ended
+        testEnded: function(){},  //checks if the test has already ended
 
-        testStarted(){},  //checks if the test has started
+        testStarted: function(){},  //checks if the test has started
 
         //Results
 
