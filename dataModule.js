@@ -1,5 +1,13 @@
 var dataModule = (function(){       //object with property value as another object 
+    
+    //shuffle function
+
+    //capitalizeRandom function
+
+    //addRandomPunctuation function
+
     var appData = {
+
         indicators: { 
                     testStarted: false,
                     testEnded: false,
@@ -61,7 +69,22 @@ var dataModule = (function(){       //object with property value as another obje
         
         //Test Words
 
-        fillListOfTestWords(testNumber){},  //fill words.testWords
+        //fill words.testWords
+        fillListOfTestWords: function(textNumber, words){
+            var results  = words.split(" "); //coverting the string into array of string
+
+            if(textNumber == 0){
+                //shuffle words
+
+                //capitalise random strings
+
+                //add a random punctuation
+
+            }
+
+            appData.words.testWords = results; 
+
+        },
 
         getListofTestWord(){},  //get the list of test words: words.testWords
 
