@@ -22,7 +22,7 @@ var UIModule = (function(){
     return{
 
         //get DOM elements
-        getDOMElements(){},
+        getDOMElements: function(){},
 
         //Indicators - Test Control
         updateTimeLeft: function(){},
