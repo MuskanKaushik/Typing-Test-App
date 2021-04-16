@@ -12,6 +12,29 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
 
         //init function, initializes the test before
         init: function(duration, textNumber){
+
+            //fill the list of test words: data Module
+
+            var words = wModule.getWords(textNumber); //taking the textNumber from the word Module(either list 0,1 or 2)
+            dModule.fillListOfTestWords(textNumber,words); // calling the data Module and passing parameter textNumber and words (sending words because we can randomize words)
+
+            //fill the list of test words: UI Module
+
+            //set the total test time
+
+            //update time left: data Module
+
+            //update time left: UI Module
+
+            //move to a new word: data Module
+
+            //set active word: UI Module
+
+            //format the active word: UI Module
+
+            //focus on text input: UI Module
+
+            //add event listeners
             addEventListeners();
         }
     };
