@@ -1,6 +1,31 @@
 var dataModule = (function(){       //object with property value as another object 
     
     //shuffle function
+    var shuffle = function(array){
+        //[1,2,3] -> [3,1,2]
+        //newArray[]
+        //select random element : 2
+        //newArray[2]
+        //oldArray[1,3]
+        //select random element: 1
+        //newArray[2,1]
+        //oldArray[3]
+        //select random element: 3
+        //newArray[2,1,3]
+        //oldArray[]
+        var newArray=[];
+        var randomIndex;
+        var randomElement;
+        while(array.length>0){
+            //take a random element from the array and add it to newArray
+            randomIndex = Math.floor(Math.random()*array.length);
+            randomElement = array[randomIndex];
+            newArray.push(randomElement);
+            //delete randomElement from array
+            array.splice(randomIndex,1);
+        }
+        return newArray;
+    }
 
     //capitalizeRandom function
 
