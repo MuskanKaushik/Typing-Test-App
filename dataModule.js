@@ -25,9 +25,27 @@ var dataModule = (function(){       //object with property value as another obje
             array.splice(randomIndex,1);
         }
         return newArray;
-    }
+    };
+
+    //capitalize first letter of a string
+    String.prototype.capitalize = function(){
+        var newString ="";
+        var firstCharCap = this.charAt(0).toUpperCase;
+        var remainingChar = this.slice(1);
+        newString = firstCharCap + remainingChar;
+        return newString;
+    };
 
     //capitalizeRandom function
+    //array['word1', 'word2', 'word3']
+    //array['Word1', 'word2', 'Word3']
+    var capitalizeRandom = function(arrayOfStrings){
+        return arrayOfStrings.map(function(currentWord){ 
+        var x = Math.floor(4 * Math.random());  //chances of x equal to 3: 25%
+        return (x==3) ? currentWord.capitalize() : currentWord;
+    })
+};
+
 
     //addRandomPunctuation function
 
