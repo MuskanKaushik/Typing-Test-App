@@ -1,5 +1,7 @@
 var dataModule = (function(){       //object with property value as another object 
     
+    var lineReturn = '|';
+
     //shuffle function
     var shuffle = function(array){
         //[1,2,3] -> [3,1,2]
@@ -29,8 +31,8 @@ var dataModule = (function(){       //object with property value as another obje
 
     //capitalize first letter of a string
     String.prototype.capitalize = function(){
-        var newString ="";
-        var firstCharCap = this.charAt(0).toUpperCase;
+        var newString ='';
+        var firstCharCap = this.charAt(0).toUpperCase();
         var remainingChar = this.slice(1);
         newString = firstCharCap + remainingChar;
         return newString;
@@ -41,13 +43,25 @@ var dataModule = (function(){       //object with property value as another obje
     //array['Word1', 'word2', 'Word3']
     var capitalizeRandom = function(arrayOfStrings){
         return arrayOfStrings.map(function(currentWord){ 
-        var x = Math.floor(4 * Math.random());  //chances of x equal to 3: 25%
-        return (x==3) ? currentWord.capitalize() : currentWord;
+        var x = Math.floor(4 * Math.random());  //chances of x equal to 3: 25% (percentage of likelihood that the 1st word of string will be capital is 25%)
+        return (x==3) ? currentWord.capitalize() : currentWord; 
     })
 };
 
 
     //addRandomPunctuation function
+    //array['word1','word2','word3']
+    //array['word1.','word2?','word3,']
+    var addRandomPunctuation = function(arrayOfStrings){
+        return arrayOfStrings.map(function(currentWord){
+            var randomPunctuation;
+            var items = [lineReturn, '?', ',', ',', ',', ',', '.', '.', '!', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+            var randomIndex = Math.floor(Math.random() * items.length);
+            randomPunctuation = items[randomIndex];
+            
+            return currentWord + randomPunctuation;
+        });
+    };
 
     var appData = {
 
@@ -84,7 +98,7 @@ var dataModule = (function(){       //object with property value as another obje
     return{                             //return object with property as method
         //Indicators - test Control
 
-        setTimeTest: function(x){},  //sets the total test time
+        setTestTime: function(x){},  //sets the total test time
 
         initializeTimeLeft(){},  //initializes time left to the total test time
 
@@ -114,28 +128,34 @@ var dataModule = (function(){       //object with property value as another obje
 
         //fill words.testWords
         fillListOfTestWords: function(textNumber, words){
-            var results  = words.split(" "); //coverting the string into array of string
+            var result = words.split(" "); //coverting the string into array of string
 
             if(textNumber == 0){
                 //shuffle words
+                result = shuffle(result);
 
                 //capitalise random strings
+                result = capitalizeRandom(result);
 
                 //add a random punctuation
+                result = addRandomPunctuation(result);
 
             }
 
-            appData.words.testWords = results; 
+            appData.words.testWords = result; 
 
         },
 
-        getListofTestWord(){},  //get the list of test words: words.testWords
+        getListofTestWord: function(){},  //get the list of test words: words.testWords
 
         moveToNewWord: function(){},  //increments the currentWordIndex - updates the current word (appData.words.currentWord) by creating a new 
                                         //instanse of word class - updates numOfCorrectWords, numOfCorrectCharacters and numOfTestCharacters.
 
         updateCurrentWord: function(value){},  //updates current word using user input 
 
+        returnData(){
+            console.log(appData);
+        }
     }
 
 })();
