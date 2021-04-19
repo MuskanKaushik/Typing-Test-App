@@ -1,10 +1,10 @@
 var UIModule = (function(){
 
     //classes used to select HTML elements
-    var DOMElements = {
+    //var DOMElements = {
 
         //indicators - test control
-        timeLeft,  //HTML elememt displaying time Left
+       /* timeLeft,  //HTML elememt displaying time Left
 
         //test results
         wpm, wpmChange, cpm, cpmChange, accuracy, accuracyChange,
@@ -17,7 +17,7 @@ var UIModule = (function(){
 
         //model
         modal
-    };
+    };*/
 
     return{
 
