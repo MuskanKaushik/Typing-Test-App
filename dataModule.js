@@ -146,12 +146,18 @@ var dataModule = (function(){       //object with property value as another obje
 
         },
 
-        getListofTestWord: function(){},  //get the list of test words: words.testWords
+        getListofTestWord: function(){
+            return appData.words.testWords;
+        },  //get the list of test words: words.testWords
 
         moveToNewWord: function(){},  //increments the currentWordIndex - updates the current word (appData.words.currentWord) by creating a new 
                                         //instanse of word class - updates numOfCorrectWords, numOfCorrectCharacters and numOfTestCharacters.
 
         updateCurrentWord: function(value){},  //updates current word using user input 
+
+        getLineReturn(){
+            return lineReturn;
+        },
 
         returnData(){
             console.log(appData);
