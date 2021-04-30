@@ -24,10 +24,14 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
             uModule.fillContent(testWords, lineReturn);
 
             //set the total test time
+            dModule.setTestTime(duration);
 
             //update time left: data Module
+            dModule.initializeTimeLeft();
 
             //update time left: UI Module
+            var timeLeft = dModule.getTimeLeft();
+            uModule.updateTimeLeft(timeLeft);
 
             //move to a new word: data Module
 
