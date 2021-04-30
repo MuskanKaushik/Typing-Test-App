@@ -68,7 +68,7 @@ var dataModule = (function(){       //object with property value as another obje
         indicators: { 
                     testStarted: false,
                     testEnded: false,
-                    totalTestTime:0,
+                    totalTestTime:0, //It refers to the total time initialize by the client
                     timeLeft:0          
         },
         results: {
@@ -98,15 +98,26 @@ var dataModule = (function(){       //object with property value as another obje
     return{                             //return object with property as method
         //Indicators - test Control
 
-        setTestTime: function(x){},  //sets the total test time
+        //sets the total test time to x
+        setTestTime: function(x){
+            appData.indicators.totalTestTime = x;
+        },  
 
-        initializeTimeLeft(){},  //initializes time left to the total test time
+        //initializes time left to the total test time
+        initializeTimeLeft(){
+            appData.indicators.timeLeft = appData.indicators.totalTestTime;
+        },  
 
-        startTest: function(){}, //starts the test
+        //starts the test
+        startTest: function(){}, 
 
-        endTest: function(){},  //ends the test
+        //ends the test
+        endTest: function(){},  
 
-        getTimeLeft: function(){},  //return the remaining test time
+        //return the remaining test time
+        getTimeLeft: function(){
+            return appData.indicators.timeLeft;
+        }, 
 
         reduceTime: function(){},  //reduces the time by one sec
 
