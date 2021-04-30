@@ -19,6 +19,9 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
             dModule.fillListOfTestWords(textNumber,words); // calling the data Module and passing parameter textNumber and words (sending words because we can randomize words)
 
             //fill the list of test words: UI Module
+            var lineReturn = dModule.getLineReturn();
+            var testWords = dModule.getListofTestWord();
+            uModule.fillContent(testWords, lineReturn);
 
             //set the total test time
 
