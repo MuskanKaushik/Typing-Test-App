@@ -83,14 +83,29 @@ var dataModule = (function(){       //object with property value as another obje
                 numOfTestCharacters: 0
         },
         words: {
-                currentWordIndex: 0,
+                currentWordIndex: -1, //setting it -1 because we have to incresement the value of current word index by 1 and adding 1 to -1 will to first index i.e. 0
                 testWords: [],      //array in which we are going to keep all the words extracted form client
                 currentWord: {}
         },               
     };
 
     //Word Constructor
-    var word = function(index){}; //this method will contain the word at every index
+    var word = function(index){
+        //word values: correct vs user's
+        this.value = {
+            correct: appData.words.testWords[index]+' ',
+            user:'',
+            isCorrect:false
+        }; 
+        //character: correct vs user's
+        this.characters = {
+            correct:this.value.correct.split(''),
+            user:[],
+            totalCorrect: 0,
+            totalTest: this.value.correct.length
+        };
+
+    }; //this method will contain the word at every index
 
     //Update method
     word.prototype.update = function(value){};  //Since the value will be updated for words so we got to update the words.
@@ -161,7 +176,20 @@ var dataModule = (function(){       //object with property value as another obje
             return appData.words.testWords;
         },  //get the list of test words: words.testWords
 
-        moveToNewWord: function(){},  //increments the currentWordIndex - updates the current word (appData.words.currentWord) by creating a new 
+        moveToNewWord: function(){
+            if(appData.words.currentWordIndex>-1){
+                //updating the number of correct words
+
+                //updating the number of correct characters
+
+                //update number of test characters
+                
+            }
+             appData.words.currentWordIndex ++;
+             var currentIndex = appData.words.currentWordIndex;
+             var newWord = new word(currentIndex); //new instance of the class word
+            appData.words.currentWord = newWord; //storing the instance into current word
+        },  //increments the currentWordIndex - updates the current word (appData.words.currentWord) by creating a new 
                                         //instanse of word class - updates numOfCorrectWords, numOfCorrectCharacters and numOfTestCharacters.
 
         updateCurrentWord: function(value){},  //updates current word using user input 
