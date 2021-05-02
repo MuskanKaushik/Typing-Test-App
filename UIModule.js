@@ -42,7 +42,7 @@ var UIModule = (function(){
     };
 
     var addWordSpanTags = function(array){
-        array.push('</span');
+        array.push('</span>');
         array.unshift('<span>');
         return array;
     };
@@ -69,7 +69,9 @@ var UIModule = (function(){
         showModel: function(){},
 
         //user input
-        inputFocus: function(){},
+        inputFocus: function(){
+            DOMElements.textInput.focus(); //this will focus on the text input
+        },
 
         isNameEmpty: function(){},
 
@@ -125,9 +127,20 @@ var UIModule = (function(){
             DOMElements.content.innerHTML = content;
         },
 
-        formatWord: function(wordObject, wordHTML){},
+        formatWord: function(wordObject){ // wordObject parameter is the object which we are going to retrieve from getCurrentWord in data Module.
+            var activeWord = DOMElements.activeWord; //this refers to our html element which we are going to format
+            
+            //highlight current word
+            activeWord.className = 'activeWord'; //this is styled inside the css file
+            
+            //format individual character --> the correct word is formatted by blue text colour and the wrong ord is formatted with red text colour.
+            
 
-        setActiveWord: function(index){},
+        },
+
+        setActiveWord: function(index){
+            DOMElements.activeWord = DOMElements.content.children[index];
+        },
 
         deactivateCurrentWord: function(){},
 
@@ -135,3 +148,4 @@ var UIModule = (function(){
     }
 
 })();
+//we shouldn't return an object or a private objects inside a public method....
