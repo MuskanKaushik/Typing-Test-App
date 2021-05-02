@@ -167,9 +167,7 @@ var dataModule = (function(){       //object with property value as another obje
                 result = addRandomPunctuation(result);
 
             }
-
             appData.words.testWords = result; 
-
         },
 
         getListofTestWord: function(){
@@ -183,7 +181,7 @@ var dataModule = (function(){       //object with property value as another obje
                 //updating the number of correct characters
 
                 //update number of test characters
-                
+
             }
              appData.words.currentWordIndex ++;
              var currentIndex = appData.words.currentWordIndex;
@@ -191,6 +189,22 @@ var dataModule = (function(){       //object with property value as another obje
             appData.words.currentWord = newWord; //storing the instance into current word
         },  //increments the currentWordIndex - updates the current word (appData.words.currentWord) by creating a new 
                                         //instanse of word class - updates numOfCorrectWords, numOfCorrectCharacters and numOfTestCharacters.
+
+        
+        getCurrentWordIndex(){
+            return appData.words.currentWordIndex;
+        },
+
+        //get current word
+        getCurrentWord(){
+            var currentWord = appData.words.currentWord;
+            return{ //This is for the formatting purpose of the current word
+                value:{
+                    correct: currentWord.value.correct,
+                user: currentWord.value.user
+            }
+        };
+    },
 
         updateCurrentWord: function(value){},  //updates current word using user input 
 
