@@ -2,7 +2,42 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
     var addEventListeners = function(){
         
         //character tying event listener
+        uModule.getDOMElements().textInput.addEventListener('keypress',function(event){
+            //if the test ended
+            if(dModule.testEnded()){
+                return;
+            }
 
+            //if the test has not started yet, start the test and countdown
+            if(dModule.testStarted()){
+                //start the test
+
+            }
+
+            //get typed word: UI module
+            var typedWord = uModule.
+
+            //update the current word: data module
+
+            //format the active word
+
+            //check if the user pressed space or enter
+            if(uModule.spacePressed() || uModule.enterPressed()){
+                
+                //empty the text input
+
+                //deactivate current word
+
+                //move to new word: data module
+
+                //set the active word: UI Module
+
+                //format the active word: UI Module
+
+                //Scroll theword into middle view
+
+            }
+        });
         //click on download button event listeners
 
         //click on restart button event listeners
