@@ -54,7 +54,11 @@ var UIModule = (function(){
     return{
 
         //get DOM elements
-        getDOMElements: function(){},
+        getDOMElements: function(){
+            return{
+                textInput: DOMElements.textInput
+            };
+        },
 
         //Indicators - Test Control
         updateTimeLeft: function(x){
