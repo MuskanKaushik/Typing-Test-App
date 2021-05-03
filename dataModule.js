@@ -107,7 +107,7 @@ var dataModule = (function(){       //object with property value as another obje
 
     }; //this method will contain the word at every index
 
-    //Update method
+    //Update method: update the word using the word typed by the user
     word.prototype.update = function(value){};  //Since the value will be updated for words so we got to update the words.
 
     return{                             //return object with property as method
@@ -208,7 +208,9 @@ var dataModule = (function(){       //object with property value as another obje
         };
     },
 
-        updateCurrentWord: function(value){},  //updates current word using user input 
+        updateCurrentWord: function(value){
+            appData.words.currentWord.update(value);
+        },  //updates current word using user input 
 
         getLineReturn(){
             return lineReturn;

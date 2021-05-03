@@ -87,7 +87,9 @@ var UIModule = (function(){
 
         emptyInput: function(){},
 
-        getTypedWord: function(){},
+        getTypedWord: function(){
+            return DOMElements.textInput.nodeValue;
+        },
 
         //test Words
         fillContent: function(array, lineReturn){

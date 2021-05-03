@@ -15,9 +15,10 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
             }
 
             //get typed word: UI module
-            var typedWord = uModule.
+            var typedWord = uModule.getTypedWord();
 
             //update the current word: data module
+            dModule.updateCurrentWord(typedWord);
 
             //format the active word
 
