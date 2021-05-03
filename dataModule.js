@@ -138,7 +138,9 @@ var dataModule = (function(){       //object with property value as another obje
 
         timeLeft: function(){},  //checks if there is time left to continue the test
 
-        testEnded: function(){},  //checks if the test has already ended
+        testEnded: function(){
+            return appData.indicators.testEnded;
+        },  //checks if the test has already ended
 
         testStarted: function(){},  //checks if the test has started
 
