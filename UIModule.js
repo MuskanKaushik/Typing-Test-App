@@ -51,6 +51,11 @@ var UIModule = (function(){
         return array.join('');
     };
 
+    var userValue;
+    var returnCharClass = function(currentCharacter, index){
+        return (index < userValue.length )?(currentCharacter == userValue[index] ? 'correctCharacter': 'wrongCharacter'):'0'
+    };
+
     return{
 
         //get DOM elements
@@ -141,7 +146,23 @@ var UIModule = (function(){
             activeWord.className = 'activeWord'; //this is styled inside the css file
             
             //format individual character --> the correct word is formatted by blue text colour and the wrong ord is formatted with red text colour.
-            
+            var correctValue = wordObject.value.correct;
+            userValue = wordObject.value.user;
+
+            //correct value 'word1'
+            //user value 'wwrd'
+            var classes =
+            Array.prototype.map.call(correctValue, returnCharClass);
+           
+            //get active word
+            var activeWord = DOMElements.activeWord;
+            var characters = activeWord.children;
+
+            //add classes to children
+            for(var i=0; i< characters.length; i++){
+                characters[i].removeAttribute('class');
+                characters[i].className = classes[i];
+            }
 
         },
 
