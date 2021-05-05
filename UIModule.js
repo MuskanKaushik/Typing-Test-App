@@ -88,7 +88,8 @@ var UIModule = (function(){
         emptyInput: function(){},
 
         getTypedWord: function(){
-            return DOMElements.textInput.nodeValue;
+            console.log(DOMElements.textInput.value);
+            return DOMElements.textInput.value;
         },
 
         //test Words
