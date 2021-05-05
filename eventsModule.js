@@ -23,23 +23,32 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
             //format the active word
             var currentWord = dModule.getCurrentWord();
             uModule.formatWord(currentWord);
-            
+
 
 
             //check if the user pressed space or enter
-            if(uModule.spacePressed() || uModule.enterPressed()){
-                
+            if(uModule.spacePressed(event) || uModule.enterPressed()){
+                //console.log('Space pressed');
                 //empty the text input
+                uModule.emptyInput();
 
                 //deactivate current word
+                uModule.deactivateCurrentWord();
 
-                //move to new word: data module
+                //move to a new word: data Module
+                dModule.moveToNewWord();
 
-                //set the active word: UI Module
+                //set active word: UI Module
+                var index = dModule.getCurrentWordIndex(); //we have to know the current word index to set the correct active word
+                uModule.setActiveWord(index);
 
                 //format the active word: UI Module
+                var currentWord = dModule.getCurrentWord();
+                uModule.formatWord(currentWord);
 
-                //Scroll theword into middle view
+                //Scroll the word into middle view
+                //now we just keep pressing the space then there will be situation where we will be unable to find the next word therefore we are put a scroll function
+                uModule.scroll();
 
             }
         });
