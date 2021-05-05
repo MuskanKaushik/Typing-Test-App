@@ -63,6 +63,14 @@ var dataModule = (function(){       //object with property value as another obje
         });
     };
 
+    //binding a function to an object means that you are creating a new function where element this is always equal to that function
+    //that you binded the function to..
+    //character call back used to the correct characters inside current word
+    var nbCorrectChar;
+    var charCallback = function(currentElement,index){
+            nbCorrectChar += (currentElement == this.characters.user[index])? 1: 0;
+    };
+
     var appData = {
 
         indicators: { 
@@ -107,8 +115,28 @@ var dataModule = (function(){       //object with property value as another obje
 
     }; //this method will contain the word at every index
 
-    //Update method: update the word using the word typed by the user
-    word.prototype.update = function(value){};  //Since the value will be updated for words so we got to update the words.
+    //Update method: update the word using the word typed by the user 
+    word.prototype.update = function(value){
+        //update the user value
+        this.value.user = value;
+
+        //update the words status(if the word is correct or not)
+        this.value.isCorrect = (this.value.cor==this.value.user);
+
+        //update user characters
+        this.characters.user = this.value.user.split('');
+
+        //calculate the number of correct characters
+        //correct:['w','o','r','d']
+        //user:['w','o','o','w','w','w','w']
+        var nbCorrectChar = 0;
+
+         charCallback = charCallback.bind(this)
+
+        this.characters.correct.forEach(charCallback);
+        this.characters.totalCorrect = nbCorrectChar;
+
+    };  //Since the value will be updated for words so we got to update the words.
 
     return{                             //return object with property as method
         //Indicators - test Control
