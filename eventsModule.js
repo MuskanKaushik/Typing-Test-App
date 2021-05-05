@@ -2,7 +2,7 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
     var addEventListeners = function(){
         
         //character tying event listener
-        uModule.getDOMElements().textInput.addEventListener('keydown',function(event){
+        uModule.getDOMElements().textInput.addEventListener('input',function(event){
             //if the test ended
             if(dModule.testEnded()){
                 return;
