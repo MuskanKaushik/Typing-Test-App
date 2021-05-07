@@ -1,5 +1,26 @@
 var eventsModule = (function(dModule, uModule, cModule, wModule){
     var addEventListeners = function(){
+
+        // enter click event
+        uModule.getDOMElements().textInput.addEventListener('keydown',function(event){
+            
+            //if the test ended, do nothing
+            if(dModule.testEnded()){
+                return;
+            }
+
+            //check if the user press enter
+            var key = event.keyCode;
+            if(key ==13){
+                uModule.getDOMElements().textInput.value += dModule.getLineReturn() + ' ';
+            }
+
+            //create an new 'input' event
+            var inputEvent = new Event('input');
+
+            //dispatch it
+            uModule.getDOMElements().textInput.dispatchEvent(inputEvent);
+        });
         
         //character tying event listener
         uModule.getDOMElements().textInput.addEventListener('input',function(event){
@@ -27,7 +48,7 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
 
 
             //check if the user pressed space or enter
-            if(uModule.spacePressed(event) || uModule.enterPressed()){
+            if(uModule.spacePressed(event) || uModule.enterPressed(dModule.getLineReturn())){
                 //console.log('Space pressed');
                 //empty the text input
                 uModule.emptyInput();
@@ -56,6 +77,8 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
 
         //click on restart button event listeners
     };
+    //scroll to middle view on window resize
+    window.addEventListener('resize', uModule.scroll);
 
     return{
 
