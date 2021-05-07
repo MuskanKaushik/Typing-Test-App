@@ -152,7 +152,9 @@ var dataModule = (function(){       //object with property value as another obje
         },  
 
         //starts the test
-        startTest: function(){}, 
+        startTest: function(){
+            appData.indicators.testStarted = true;
+        }, 
 
         //ends the test
         endTest: function(){},  

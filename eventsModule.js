@@ -30,8 +30,42 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
             }
 
             //if the test has not started yet, start the test and countdown
-            if(dModule.testStarted()){
-                //start the test
+            if(!dModule.testStarted()){
+                //start the test: data module
+                dModule.startTest()
+
+                //start counter
+                var b = setInterval(function(){
+                    //calculate the results: data module
+
+                        //update the wpm, wpmChange : data module
+
+                        //update the cpm, cpmChange: data module
+
+                        //update accuracy, accuracyChange: data module
+
+                    //update the results : UI module
+
+                    //update time left
+
+                    //check if we have time left
+
+                        //yes: 
+
+                        //reduce time by one sec
+
+                        //update time remaining in UI module
+
+                        //no:
+
+                        //end the test : data module
+
+                        //fill the modal
+
+                        //show modal
+
+
+                }, 1000);
 
             }
 
